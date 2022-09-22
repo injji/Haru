@@ -1,0 +1,29 @@
+body {
+    /* background:#F5F5F5; */
+}
+#todaypay {
+    width: calc(100% - 56px);
+    margin: 20px auto 0 auto;
+}
+#todaypay h1 {
+    line-height: 4.2rem;
+}
+#todaypay .todaybar {
+    width: 100%;
+    margin-top: 8px;
+}
+#todaypay .todaybar .todayprocess {
+    display: block;
+    /* width: 100%; */
+    height: 8px;
+    border-radius: 6px;
+    background-color: #1668F0;
+}
+
+#todaypay .todaybar .totalprocess {
+    display: block;
+    width: 100%;
+    height: 8px;
+    border: 1px solid #1668F0;
+    border-radius: 6px;
+}

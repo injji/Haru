@@ -1,0 +1,40 @@
+#totalcard .cardframe {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+}
+
+#totalcard .cardframe > div {
+    margin: 0 0 38px 20px;
+}
+
+#totalcard .cardframe > div p {
+    line-height: 2.6rem;
+    color: #fff;
+}
+
+#totalcard .cardframe > div h3 {
+    color: #fff;
+    line-height: 3.4rem;
+    font-weight: 800;
+}
+
+#totalcard .cardframe > div span {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    color: #fff;
+    margin-top: 16px;
+    display: block;
+}
+
+#totalcard .cardframe.fontB > div p {
+    color: #000;
+}
+
+#totalcard .cardframe.fontB > div h3 {
+    color: #000;
+}
+
+#totalcard .cardframe.fontB > div span {
+    color: #000;
+}

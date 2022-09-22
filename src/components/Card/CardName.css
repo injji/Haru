@@ -1,0 +1,101 @@
+form {
+  width: 100%;
+}
+
+.cardframe {
+  width: 215px;
+  height: 335px;
+  background-color: #373ef0;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 20px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  margin: 20px auto 0 auto;
+}
+
+.cardframe img {
+  position: absolute;
+  top: 36px;
+  right: 75px;
+}
+
+#wrap28 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.changebutton li {
+  width: 28px;
+  height: 28px;
+  border-radius: 15px;
+}
+.changebutton li:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.changebutton li:last-child input {
+  display: none;
+}
+.changebutton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cardname {
+  width: 100%;
+  background: #f5f5f5;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 0;
+  margin-top: 28px;
+}
+
+.cardname > div {
+  width: calc(100% - 40px);
+}
+.cardname > div:first-child {
+  margin-bottom: 20px;
+}
+.cardname > div p {
+  line-height: 2.6rem;
+  font-weight: 800;
+}
+.cardname > div input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #888;
+  width: 100%;
+  height: 26px;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  margin-top: 10px;
+}
+
+.cardname > div input:focus {
+  border-bottom: 1px solid #1668f0;
+  outline: none;
+}
+
+.cardbutton {
+  border-radius: 5px;
+  background: #1668f0;
+  width: 120px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 40px auto 16px auto;
+  display: block;
+
+}
