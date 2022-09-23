@@ -6,6 +6,7 @@ import TotalCard from './TotalCard';
 import RecipeList from './RecipeList';
 
 const Recipe = ({subtit, subfoot, localeStartDate, localeEndDate}) => {
+
     // CARD 값 가져오기
     const CardName = localStorage.getItem("CARD") 
     const ArrcName = JSON.parse(CardName)

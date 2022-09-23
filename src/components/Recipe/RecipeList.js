@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import RecipeItem from './RecipeItem';
 import "./RecipeList.css";
 
@@ -34,13 +34,16 @@ const RecipeList = ({result, betweenDay}) => {
         return tmp;
     });
     
-    
 
     // 데이터 초기화 시키기
     const [Data, setData] = useState(recipestate);
+  
 
+    // console.log(Data.id[1])
     // 디데이를 구하기 위한 방법 데이터의 'id' 값 맞추기
     const [dnum, setDnum] = useState(betweenDay.length - result)
+    
+    const [Listuse, setListuse] = useState(Data[dnum].list)
 
     // useEffect(() => {
     //     localStorage.setItem('DATA', JSON.stringify(Data));
@@ -61,25 +64,23 @@ const RecipeList = ({result, betweenDay}) => {
             [name]: value
         });
     };
-
+    const nextId = useRef(0)
     const handleSubmit = (e) => {
         e.preventDefault();
         const Datalist = {
-            list: [
-                {
-                    num: 1,
-                    revenue,
-                    listTit,
-                    won
-                }
-            ]
+            num: nextId.current,
+            revenue,
+            listTit,
+            won
         }
-
-        setData(
-            Data.map((data) => {
-                return data.id === dnum ? [...Data.list, Datalist] : Data
-            })
+        setListuse(
+            [...Listuse, Datalist]
         )
+        setData(
+            [...Data, Listuse]
+        )
+
+        nextId.current += 1;
     };
 
 

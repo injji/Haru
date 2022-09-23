@@ -6,7 +6,7 @@ import Nicname from "./components/Welcome/Nicname";
 import Plan from "./components/Welcome/Plan";
 import Makecard from "./components/Welcome/Makecard";
 import NotFound from './components/NotFound';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Recipe from "./components/Recipe/Recipe";
 
@@ -52,7 +52,7 @@ const App = () => {
     setUserName(e.target.value);
   };
 
- 
+
   return (
     <>
       <GlobalStyle />
@@ -70,13 +70,22 @@ const App = () => {
           <Route path="/welcome/3" element={<Makecard  
               subtit={setTitle}
               subbak={setBak} 
+              subfoot={setFoot}
           />}></Route>
-          <Route path="/" element={<Recipe  
+          <Route path="/" element={
+          !storageDataName ? <Nicname  
+          userName={userName}
+          onChangeInput={onChangeInput} 
+          />
+          :
+          <Recipe  
             subtit={setTitle}
             subfoot={setFoot}  
             localeStartDate={localeStartDate}
             localeEndDate={localeEndDate}
-          />}></Route> 
+          />}>
+          
+          </Route> 
         </Route>
 
           <Route path="*" element={<NotFound 

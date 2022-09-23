@@ -18,11 +18,15 @@ const Plan = ({setLocaleStart, setLocaleEnd}) => {
 
     // 로컬의 plan 값 체크해서 기본값 나타내기
     const PlanD = window.localStorage.getItem("PLAN");
+    const today = new Date();
+    const nextDay = today.setDate(today.getDate() + 1);
+    const nextDate = Moment(nextDay).format("YYYY-MM-DD")
+    
     const PlanDay = () => {
         if(PlanD){
             return [new Date(startDay), new Date(endDay)]
         } else {
-            return [new Date(), new Date()]
+            return [new Date(), new Date(nextDate)]
         }
     }
 

@@ -10,16 +10,10 @@ const CardName = () => {
     }
 
     // 로컬에 있는 데이터 확인, 없으면 기본 정보대로 표시되게
-    const [Cinput, setCInput] = useState(() => {
-        if (typeof window !== "undefined") {
-            const saved = window.localStorage.getItem("CARD");
-            if (saved !== null) {
-            return JSON.parse(saved);
-            } else {
-            return CinputBase;
-        }
-    }
-    });
+    const saved = window.localStorage.getItem("CARD");
+    const [Cinput, setCInput] = useState(
+        saved ? JSON.parse(saved) : CinputBase 
+    );
 
     // input 간편하게 정리
     const { CName, CPay, cardBG } = Cinput;
@@ -68,11 +62,6 @@ const CardName = () => {
     }, [Cinput])
 
 
-
-    // const userCard = () => {
-    //     localStorage.setItem('CARD', input);localStorage.setItem("CARD", JSON.stringify(Cinput))
-    
-    // }
 
     return (
         <form onSubmit={onSubmit}>
