@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import "./CardName.css"
 
-const CardName = () => {
-    // 기본 정보 넣어둠
-    const CinputBase = {
-        CName: '',
-        CPay : '',
-        cardBG: '#373EF0'
-    }
+const CardName = ({CinputBase}) => {
+    
 
     // 로컬에 있는 데이터 확인, 없으면 기본 정보대로 표시되게
     const saved = window.localStorage.getItem("CARD");

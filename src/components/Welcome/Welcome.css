@@ -197,3 +197,12 @@
 .sunday {
   color: rgb(255, 0, 0);
 }
+
+.noName {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  overflow: hidden;
+}

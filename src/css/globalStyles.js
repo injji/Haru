@@ -40,6 +40,17 @@ const globalStyles = createGlobalStyle`
   input {
     margin: 0;
   }
+
+  .bottommargin {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-top: 30px;
+  }
+
+  header{
+    background:#fff
+  }
 `;
 
 

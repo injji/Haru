@@ -2,8 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   gap: 20px;
+  position: relative;
+  top: -20px;
 }
 
 #recipelist .daylist h3 {
@@ -19,7 +20,7 @@
 
 .pluma {
   width: calc(100% - 56px);
-  margin: 40px auto 20px auto;
+  margin: 20px auto 20px auto;
 }
 
 .pluma .pluma_tit {
@@ -31,7 +32,11 @@
 .pluma .pluma_tit p {
   font-weight: 800;
 }
-
+.pluma .pluma_tit button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .modal {
   width: 100vw;
   height: 100vh;

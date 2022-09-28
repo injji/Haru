@@ -3,18 +3,21 @@ import { Outlet } from "react-router-dom";
 import Footer from './Footer';
 import Header from './Header';
 
-const Layout = ({title, foot, bak}) => {
+const Layout = ({title, foot, bak, headBG, headyes}) => {
     
     return (
         <div>
-            <Header title={title} bak={bak} />
+            {
+                headyes ? <Header title={title} bak={bak} headBG={headBG} /> : null
+            }
+            
 
             <Outlet />
 
             {
-                foot ? <Footer /> : null 
+                foot ? <Footer />  : null 
             }
-            
+        
         </div>
     );
 };

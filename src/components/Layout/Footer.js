@@ -6,6 +6,7 @@ const Footer = () => {
     const [openModal, setOpenModal] = useState(false);
     let navigate = useNavigate();
     const resetData = () => {
+        localStorage.setItem('Recipe', '');
         navigate("/welcome/2");
     }    
 
@@ -23,7 +24,7 @@ const Footer = () => {
             </button>
             </Link>
 
-            <button type='button'>
+            <button type='button' onClick={() => alert('준비중 입니다.')}>
                 <img src={`${process.env.PUBLIC_URL}/assets/img/setting.svg`} alt="setting"/>
             </button>
         </footer>
@@ -31,7 +32,7 @@ const Footer = () => {
         <div className={openModal ? 'modalopen modal' : 'modal' }>
             <div className='modalwrap'>
                 <p>재시작하기</p>
-                <p class="resetp">모든 보따리, 날짜들을 지우고 <br />
+                <p className="resetp">모든 보따리, 날짜들을 지우고 <br />
                 다시 시작하시겠습니까?</p>
 
                 <div className='modalbutton'>
@@ -42,6 +43,7 @@ const Footer = () => {
             <div className='darkbg'></div>
         </div>
         
+        <div className='bottommargin'></div>
         </>
     );
 };

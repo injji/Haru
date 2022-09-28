@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Nicname = ({ userName, onChangeInput }) => {
-  
-  // const onChageHipage = useCallback((i) => {
-  //   setData(Number(i))
-  // }, [ hipage ])
+  // const [userName, setUserName] = useState(
+  //   storageDataName ? String(storageDataName) : ""
+  // );
 
-  
+  // useEffect(() => {
+  //   localStorage.setItem("NAME", String(userName));
+  // }, [userName]);
+
   return (
     <div className="oneview">
     <div className="welcome">
