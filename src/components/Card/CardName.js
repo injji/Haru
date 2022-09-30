@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import "./CardName.css"
 
-const CardName = ({CinputBase}) => {
-    
+const CardName = () => {
+    // 기본 정보 넣어둠
+    const CinputBase = {
+        CName: '',
+        CPay : '',
+        cardBG: '#373EF0'
+    }
 
     // 로컬에 있는 데이터 확인, 없으면 기본 정보대로 표시되게
     const saved = window.localStorage.getItem("CARD");
@@ -61,7 +66,7 @@ const CardName = ({CinputBase}) => {
     return (
         <form onSubmit={onSubmit}>
             <div className='cardframe' style={{ background:cardBG }}>
-                <img src={`${process.env.PUBLIC_URL}/assets/img/chip.png`} alt="카드칩"/>
+                <img src="/assets/img/chip.png" alt="카드칩"/>
             </div>
 
             <ul className='changebutton'>
@@ -90,7 +95,7 @@ const CardName = ({CinputBase}) => {
                 </li>
 
                 <li style={{backgroundColor:"#888888"}}>
-                    <label for="imgupload"><img src={`${process.env.PUBLIC_URL}/assets/img/imgplus.svg`}  alt="plus" /> </label>
+                    <label for="imgupload"><img src="/assets/img/imgplus.svg" alt="plus" /> </label>
                     <input type="file" onChange={(e) => {
                     encodeFileToBase64(e.target.files[0]);
                     }} id="imgupload" />

@@ -9,7 +9,7 @@ const Header = ({title, bak, headBG}) => {
         <header className={headBG && "bgf5" }>
             <button onClick={() => navigate(-1)}>
                 {
-                    bak ? <img src={`${process.env.PUBLIC_URL}/assets/img/right_date.svg`} alt="back" /> : null
+                    bak ? <img src="/assets/img/right_date.svg" alt="back" /> : null
                 }
             </button>
             <h5>{title}</h5>

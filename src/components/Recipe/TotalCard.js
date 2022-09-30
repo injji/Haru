@@ -12,11 +12,10 @@ const TotalCard = ({ArrcName, PayNumber1, challenge, ingCardIN}) => {
     }
     ingCardIN(challengeMoney)
 
-
     return (
         <div id='totalcard'>
             <div className={ArrcName.cardBG === "#DAEE4E" ? "cardframe fontB" : "cardframe"} style={{ background:ArrcName.cardBG }}>
-                <img src={`${process.env.PUBLIC_URL}/assets/img/chip.png`} alt="카드칩"/>
+                <img src="/assets/img/chip.png" alt="카드칩"/>
                 <div>
                     <p>{ArrcName.CName}</p>
                     <h3>{commaMoney}</h3>

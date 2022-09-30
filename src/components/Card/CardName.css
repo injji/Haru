@@ -63,6 +63,7 @@ form {
 
 .cardname > div {
   width: calc(100% - 40px);
+  overflow: hidden;
 }
 .cardname > div:first-child {
   margin-bottom: 20px;
@@ -80,6 +81,7 @@ form {
   font-size: 1.6rem;
   line-height: 2.6rem;
   margin-top: 10px;
+  border-radius: 0;
 }
 
 .cardname > div input:focus {

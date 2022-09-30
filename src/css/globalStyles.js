@@ -6,6 +6,13 @@ const globalStyles = createGlobalStyle`
   html {
     font-size: 10px;
     color: #000;
+    display: flex;
+    justify-content: center;
+    align-content:center;
+  }
+  body{
+    max-width: 600px;
+    width: 100%;
   }
   h1 {
     font-size: 3.2rem;

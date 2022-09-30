@@ -15,17 +15,17 @@ const Footer = () => {
 
         <footer>
             <button type='button' onClick={() => setOpenModal(true)}>
-                <img src={`${process.env.PUBLIC_URL}/assets/img/reset.svg`} alt="reset"/>
+                <img src="/assets/img/reset.svg" alt="reset"/>
             </button>
 
             <Link to="/">
             <button type='button'>
-                <img src={`${process.env.PUBLIC_URL}/assets/img/home.svg`} alt="home"/>
+                <img src="/assets/img/home.svg" alt="home"/>
             </button>
             </Link>
 
             <button type='button' onClick={() => alert('준비중 입니다.')}>
-                <img src={`${process.env.PUBLIC_URL}/assets/img/setting.svg`} alt="setting"/>
+                <img src="/assets/img/setting.svg" alt="setting"/>
             </button>
         </footer>
 

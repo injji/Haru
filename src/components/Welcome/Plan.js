@@ -8,7 +8,7 @@ import getMonth from "date-fns/getMonth";
 import Moment from "moment";
 import "./Welcome.css";
 
-const Plan = ({setLocaleStart, setLocaleEnd}) => {
+const Plan = ({localeStartIN, localeEndIN}) => {
     // 날짜 형식 변환하기
     const startD = localStorage.getItem("StartPlan")
     const startDay = Moment(startD).format("YYYY.MM.DD")
@@ -17,28 +17,39 @@ const Plan = ({setLocaleStart, setLocaleEnd}) => {
     const endDay = Moment(endD).format("YYYY.MM.DD")
 
     // 로컬의 plan 값 체크해서 기본값 나타내기
-    const PlanD = window.localStorage.getItem("PLAN");
+    const [PlanD, setPlanD] = useState([])
+    useEffect(() => {
+        let PD = window.localStorage.getItem("PLAN");
+        if(PD.length !== 0){
+            setPlanD(window.localStorage.getItem("PLAN"))
+        }
+    })
+    // const PlanD = window.localStorage.getItem("PLAN");
     const today = new Date();
-    const nextDay = today.setDate(today.getDate() + 1);
-    const nextDate = Moment(nextDay).format("YYYY-MM-DD")
+    let nextDay = today.setDate(today.getDate() + 1);
+    let ND = new Date(nextDay)
+    const nextDate = Moment(ND).format("YYYY.MM.DD")
     
     const PlanDay = () => {
-        if(PlanD){
+        if(PlanD.length !== 0){
             return [new Date(startDay), new Date(endDay)]
         } else {
             return [new Date(), new Date(nextDate)]
         }
     }
-
-    const [dateRange, setDateRange] = useState(PlanDay);
+   
+    const [dateRange, setDateRange] = useState(PlanDay());
     const [startDate, endDate] = dateRange;
 
     useEffect(() => {
     localStorage.setItem('PLAN', String(dateRange));
     }, [ dateRange ]);
 
-    setLocaleStart(startDate)
-    setLocaleEnd(endDate)
+    useEffect(() => {
+        localeStartIN(startDate)
+        localeEndIN(endDate)
+    }, [dateRange])
+    
 
     // 요일 반환
     const getDayName = (date) => {
@@ -103,7 +114,7 @@ const Plan = ({setLocaleStart, setLocaleEnd}) => {
                     onClick={decreaseMonth}
                     disabled={prevMonthButtonDisabled}
                     >
-                    <img src={`${process.env.PUBLIC_URL}/assets/img/right_date.svg`} alt="dateright"/>
+                    <img src="/assets/img/right_date.svg" alt="dateright"/>
                     </div>
                     <div className="month-day">
                     {getYear(date)}.{[getMonth(date)+1]}
@@ -115,7 +126,7 @@ const Plan = ({setLocaleStart, setLocaleEnd}) => {
                     disabled={nextMonthButtonDisabled}
                     >
                         
-                    <img src={`${process.env.PUBLIC_URL}/assets/img/left_date.svg`}  alt="dateleft"/>
+                    <img src="/assets/img/left_date.svg"  alt="dateleft"/>
                     </div>
                     </div>
                 )}
@@ -131,12 +142,12 @@ const Plan = ({setLocaleStart, setLocaleEnd}) => {
                 </button> */}
                 <button>
                     <Link to="/welcome/1" >
-                    <img src={`${process.env.PUBLIC_URL}/assets/img/left_ar.svg`}  alt="이전" /> 이전
+                    <img src="/assets/img/left_ar.svg"  alt="이전" /> 이전
                     </Link>
                 </button>
                 <button>
                     <Link to="/welcome/3" >
-                    다음 <img src={`${process.env.PUBLIC_URL}/assets/img/right_ar.svg`} alt="다음" />
+                    다음 <img src="/assets/img/right_ar.svg" alt="다음" />
                     </Link>
                 </button>
             </div>

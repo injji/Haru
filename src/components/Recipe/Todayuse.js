@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const Todayuse = ({ result, allpay, ingCard}) => {
 
@@ -26,7 +26,7 @@ const Todayuse = ({ result, allpay, ingCard}) => {
         width: widthPer() + '%'
     }
 
-    console.log(ingCard)
+
  
     return (
         <div id='todaypay'>

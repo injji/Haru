@@ -12,19 +12,20 @@ const RecipeList = ({ result, betweenDay, allin, challin }) => {
     return tmp;
   });
 
+  
   // 데이터 초기화 시키기
   const localData = localStorage.getItem('Recipe');
-  {
-    localData === null && localStorage.setItem("Recipe", JSON.stringify(recipestate));
-  }
+  useEffect(() => {
+    localData === "[]" && localStorage.setItem("Recipe", JSON.stringify(recipestate))
+  }, [betweenDay])
   const [Data, setData] = useState(
     localData ? JSON.parse(localData) : recipestate
 );
 
-
   // 디데이를 구하기 위한 방법 데이터의 'id' 값 맞추기
-  const [dnum, setDnum] = useState(betweenDay.length - result);
-// console.log(betweenDay)
+  const [dnum, setDnum] = useState((betweenDay.length - 1) - result);
+
+
   const [forminputs, setFormInputs] = useState({
     revenue: "",
     listTit: "",
@@ -79,12 +80,29 @@ const RecipeList = ({ result, betweenDay, allin, challin }) => {
   /**
    * list 값으로 추출해서 새로운 객체 만들기
    */
-let paynn = Data.map((item) => (item.id === dnum && item.list.map((payy) => (payy.revenue === "수입" ? "" + payy.won : "-" + payy.won))))
+  //  let paynn = Data[dnum].list.map((payy) => (payy.revenue === "수입" ? "" + payy.won : "-" + payy.won))
+  //  let payItems = paynn.map( i => Number(i))
+  // const Datalist = () => {
+  //   if(Data[dnum].list){
+  //     let paynn = Data[dnum].list.map((payy) => (payy.revenue === "수입" ? "" + payy.won : "-" + payy.won))
+  //   let payItems = paynn.map( i => Number(i))
+  //   } else {
+  //     return [0]
+  //   }
+  // }
 
+  let paynn , payItems
+  if(Data[dnum]){
+    paynn = Data[dnum].list.map((payy) => (payy.revenue === "수입" ? "" + payy.won : "-" + payy.won))
+    payItems = paynn.map( i => Number(i))
+  } else {
+    return paynn=[0], payItems = [0]
+  } 
+
+    
 /**
  * 객체를 숫자형으로 변환
  */
-const payItems = paynn[dnum].map( i => Number(i))
 
 /**
  * 소비한 값들 모두 합치기
@@ -95,7 +113,8 @@ const payhab = () => {
     return hab
 }
 // Recipe로 데이터 보내기
-allin(payhab)
+allin(payhab())
+
 
 
 const challengeAll = Data.map((item) => (item.list.map((payy) => (payy.revenue === "수입" ? "" + payy.won : "-" + payy.won))))
@@ -107,7 +126,7 @@ const challengehab = () => {
 }
 challin(challengehab)
 
-console.log(betweenDay)
+
   return (
     <div id="recipelist">
       <div className="daylist">
@@ -132,7 +151,7 @@ console.log(betweenDay)
           D-
           {
             // D-0 이면 , D-Day로 표시되게 함
-            (betweenDay.length) - (dnum + 1) === 0 ? "Day" : betweenDay.length - (dnum + 1)
+            (betweenDay.length - 1 ) - (dnum) === 0 ? "Day" : (betweenDay.length - 1 ) - (dnum)
           }
         </h3>
         <button
@@ -156,7 +175,9 @@ console.log(betweenDay)
 
       <div className="pluma">
         <div className="pluma_tit">
-          <p>{recipestate[dnum].date}</p>
+          <p>{
+          Data[dnum].date
+          }</p>
           <button type="button" onClick={() => setOpenModal(true)}>
             <img
               src={`${process.env.PUBLIC_URL}/assets/img/addlist.svg`}
